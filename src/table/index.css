@@ -1,0 +1,31 @@
+.table-wrap{
+    width:800px;
+    border:1px solid #000;
+    padding:10px;
+}
+.table-wrap h2{
+    text-align: center;
+}
+.deleteBtn{
+    font-size: 20px;
+    color:red
+}
+th.column-money,
+td.column-money {
+  text-align: center !important;
+}
+ /* .table-wrap .ant-table-header {
+    border-top:1px solid #fff
+}
+ .table-wrap .ant-table-body thead th{
+     border:1px solid #fff
+ } */
+ .table-wrap .ant-table-bordered .ant-table-thead > tr > th{
+     border-right:0;
+     border-bottom: 1px solid #e8e8e8;
+     background: #fff;
+     text-align: left
+ }
+  .table-wrap .ant-table-bordered .ant-table-header > table{
+     border:0;
+ }
