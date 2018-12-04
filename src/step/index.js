@@ -4,8 +4,9 @@ import './index.css'
 
 import Step1 from "./step1"
 import Step2 from "./step2"
+import Step4 from "./step4"
+
 const Step = Steps.Step;
-const ButtonGroup = Button.Group;
 
 const steps = [{
     title: '科目选择',
@@ -17,18 +18,6 @@ const steps = [{
     title: '考试组卷',
     content: 'Last-content',
 }];
-
-const Content3 = () => {
-
-    return (
-        <ButtonGroup>
-            <Button>L</Button>
-            <Button>M</Button>
-            <Button>R</Button>
-        </ButtonGroup>
-    )
-
-}
 class Testpaper extends Component {
     constructor(props) {
         super(props);
@@ -41,12 +30,10 @@ class Testpaper extends Component {
         const current = this.state.current + 1;
         this.setState({ current });
     }
-
     prev() {
         const current = this.state.current - 1;
         this.setState({ current });
     }
-
     render() {
         const { current } = this.state;
         return (
@@ -54,17 +41,14 @@ class Testpaper extends Component {
                 <Steps current={current}>
                     {steps.map(item => <Step key={item.title} title={item.title} />)}
                 </Steps>
+
                 <div className="steps-content">
-
                     {/* {steps[current].content} */}
-
                     {current == 0 && <Step1 />}
                     {current == 1 && <Step2 />}
-                    {current == 2 && <Content3 />}
-
-
-
+                    {current == 2 && <Step4 />}
                 </div>
+
                 <div className="steps-action">
                     {
                         current < steps.length - 1
@@ -76,9 +60,7 @@ class Testpaper extends Component {
                     }
                     {
                         current > 0
-                        && (
-                            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>上一步</Button>
-                        )
+                        && <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>上一步</Button>
                     }
                 </div>
             </div>
