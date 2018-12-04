@@ -32,7 +32,8 @@ export class Wrap extends Component {
             }, {
                 title: '操作',
                 key: 'action',
-                render: (text, record) => (
+                render: (text, record, index) => (
+                    // record:表示这一行的信息;index:下标
                     <Popconfirm title="确定要删除?" okText="确定" cancelText="取消" onConfirm={() => this.handleDelete(record.key)}>
                         <Icon type="close-circle" className='deleteBtn' />
                     </Popconfirm>
@@ -90,8 +91,10 @@ export class Wrap extends Component {
         history.push(`/detail/${id}`)// 可以做跳转用
     }
     handleDelete = (key) => {
+        console.log(key)
         const dataSource = [...this.state.dataSource];
         this.setState({ dataSource: dataSource.filter(item => item.key !== key) }, () => {
+            // console.log(dataSource.filter(item => item.key !== key))
             message.success("删除成功")
         });
     }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux"
 
 import App from "./table/router"
+import Testpaper from './step/index'
 // import store from './react-redux/store'
 
 // import App from "./saga2/index"
@@ -33,7 +34,8 @@ const el = document.getElementById("root")
 const render = () => {
     return ReactDOM.render(
         // <Wrap />
-        <App />
+        // <App />
+        <Testpaper />
         , el)
 }
 render()

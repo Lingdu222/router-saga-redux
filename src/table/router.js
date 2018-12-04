@@ -26,7 +26,11 @@ class App extends Component {
 
                     {/* 这个定义是id，那个在详情页面就以id的形式接手参数*/}
                     <Route path="/detail/:id" component={Details}></Route>
+
+
+
                     {/* <Redirect to="/page404"></Redirect>错误页，没有次路由的 */}
+                    {/* Redirect 专门做跳转*/}
                 </Switch>
             </Router>
 
