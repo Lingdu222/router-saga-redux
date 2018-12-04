@@ -4,6 +4,7 @@ import { Provider } from "react-redux"
 
 import App from "./table/router"
 import Testpaper from './step/index'
+import TemperatureContainer from './zi-fu/fu'
 // import store from './react-redux/store'
 
 // import App from "./saga2/index"
@@ -35,7 +36,8 @@ const render = () => {
     return ReactDOM.render(
         // <Wrap />
         // <App />
-        <Testpaper />
+        // <Testpaper />
+        <TemperatureContainer />
         , el)
 }
 render()
