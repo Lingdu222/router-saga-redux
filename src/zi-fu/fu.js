@@ -1,8 +1,7 @@
-import TemperatureContainer from './zi-fu/fu'
 import React, { Component } from 'react'
 import TemperatureShow from './show'
 import TemperatureInput from './input'
-class TemperatureContainer extends React.Component {
+class TemperatureContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
