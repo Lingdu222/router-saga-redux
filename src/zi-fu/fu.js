@@ -1,3 +1,4 @@
+import TemperatureContainer from './zi-fu/fu'
 import React, { Component } from 'react'
 import TemperatureShow from './show'
 import TemperatureInput from './input'
@@ -10,7 +11,7 @@ class TemperatureContainer extends React.Component {
 
     }
     handelchange = (temperature) => {
-        this.setState({ temperature: temperature })
+        this.setState({ temperature })
     }
 
     render() {
