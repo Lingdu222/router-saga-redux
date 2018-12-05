@@ -4,8 +4,8 @@ import { Provider } from "react-redux"
 
 import App from "./table/router"
 import Testpaper from './step/index'
-// import TemperatureContainer from './zi-fu/fu'
-import Test from './zi-fu/test7'
+import TemperatureContainer from './zi-fu/fu'
+import Test from './state/test7'
 // import store from './react-redux/store'
 
 // import App from "./saga2/index"
@@ -38,8 +38,8 @@ const render = () => {
         // <Wrap />
         // <App />
         // <Testpaper />
-        // <TemperatureContainer />
-        <Test />
+        <TemperatureContainer />
+        // <Test />
         , el)
 }
 render()
