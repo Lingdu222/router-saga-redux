@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux"
 
-import App from "./table/router"
+// import App from "./table/router"
+import App from "./button/app"
 import Testpaper from './step/index'
 import TemperatureContainer from './zi-fu/fu'
 import Test from './state/test7'
+import FormLayoutDemo from './step/step5'
+import WrappedHorizontalLoginForm from './step/step6'
 // import store from './react-redux/store'
 
 // import App from "./saga2/index"
@@ -38,8 +41,10 @@ const render = () => {
         // <Wrap />
         // <App />
         // <Testpaper />
-        <TemperatureContainer />
+        // <TemperatureContainer />
         // <Test />
+        <FormLayoutDemo />
+        // <WrappedHorizontalLoginForm />
         , el)
 }
 render()

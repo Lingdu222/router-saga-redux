@@ -12,6 +12,7 @@ class Step4 extends Component {
             startValue: null,
             endValue: null,
             endOpen: false,
+            formLayout: '数学',
         };
 
     }
@@ -58,6 +59,9 @@ class Step4 extends Component {
             this.setState({ endOpen: true });
         }
     }
+    handleFormLayoutChange = (e) => {
+        this.setState({ formLayout: e.target.value });
+    }
 
     handleEndOpenChange = (open) => {
         this.setState({ endOpen: open });
@@ -66,7 +70,7 @@ class Step4 extends Component {
         const { startValue, endValue, endOpen } = this.state
         return (
             <div className='step2'>
-                <ButtonGroup>
+                <ButtonGroup onChange={this.handleFormLayoutChange} layout={this.state.formLayout}>
                     <span className='title'> 所教学科</span>
                     <Button>数学</Button>
                     <Button>英语</Button>
