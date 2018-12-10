@@ -65,15 +65,14 @@
     border:1px solid red;
     color:red;
 }
-#showTag{
+/* #showTag{
     display: flex
-}
-.ant-form-item-control #showTag2{
-    border:1px solid red;
+} */
+/* .ant-form-item-control #showTag2{
     display: inline;
-    margin-left:30px;
-    margin-top:-10px
-}
-.yingyong .ant-form-item-control{
-     margin-top:-100px
-}
+} */
+/* .ant-col-24{
+    display: flex;
+    display: inline-block;
+    width:100%;
+} */

@@ -1,15 +1,12 @@
 import React from 'react'
 import {
     Form, Select, InputNumber, Radio, Input,
-    Button, Checkbox, Icon, Col, Row
+    Button, Checkbox, Icon, Col
 } from 'antd';
-import ColumnGroup from 'antd/lib/table/ColumnGroup';
-
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-// const CheckboxButton = Checkbox.Button;
 const CheckboxGroup = Checkbox.Group
 const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
@@ -47,7 +44,6 @@ class Demo extends React.Component {
         })
     }
     handleSubmit = (e) => {
-
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
@@ -195,11 +191,16 @@ class Demo extends React.Component {
                         </CheckboxGroup>
                     )}
                 </FormItem>
-                <Col span={1}>
+                <Col
+                    span={24}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        alignItems: 'center'
+                    }}>
                     <FormItem
-                        {...formItemLayout}
                         label="题型选择"
-
+                        style={{ display: 'flex' }}
                     >
                         {getFieldDecorator('showTag')(
                             <div>
@@ -207,11 +208,8 @@ class Demo extends React.Component {
                                 <InputNumber min={0} onChange={this.handerchange}></InputNumber>
                             </div>
                         )}
-                    </FormItem><FormItem
-                        // {...formItemLayout}
-                        layout="inline"
-                    // style={{ maiginTop: 65 }}
-                    >
+                    </FormItem>
+                    <FormItem>
                         {getFieldDecorator('showTag2')(
                             <div className='yingyong'>
                                 <span className={value2 > 0 ? 'active' : 'default'}>应用题</span>
@@ -219,11 +217,7 @@ class Demo extends React.Component {
                             </div>
                         )}
                     </FormItem>
-                    <FormItem
-                        // {...formItemLayout}
-                        layout="inline"
-                    // style={{ maiginTop: 165 }}
-                    >
+                    <FormItem>
                         {getFieldDecorator('showTag3')(
                             <div className='jianda'>
                                 <span className={value3 > 0 ? 'active' : 'default'}>简答</span>
@@ -238,16 +232,16 @@ class Demo extends React.Component {
                 >
                     {getFieldDecorator('radio-group')(
                         <div style={{ marginBottom: 16 }}>
-                            <Input addonAfter="分钟" defaultValue="" type='number' />
+                            <Input addonAfter="分钟" defaultValue="" type='number' style={{ width: 150 }} />
                         </div>
                     )}
                 </FormItem>
                 <FormItem
-                    wrapperCol={{ span: 12, offset: 6 }}
+                    wrapperCol={{ span: 12, offset: 11 }}
                 >
                     <Button type="primary" htmlType="submit">Submit</Button>
                 </FormItem>
-            </Form>
+            </Form >
         );
     }
 }
