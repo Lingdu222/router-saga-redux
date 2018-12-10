@@ -201,7 +201,6 @@ class Demo extends React.Component {
                 <Col
                     span={24}
                     style={{
-
                         display: 'flex',
                         justifyContent: 'space-around',
                         alignItems: 'center',
@@ -255,6 +254,5 @@ class Demo extends React.Component {
         );
     }
 }
-
 const WrappedDemo = Form.create()(Demo);
 export default WrappedDemo
