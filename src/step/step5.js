@@ -127,7 +127,14 @@ class Demo extends React.Component {
                     label="作业名称"
                 >
                     {getFieldDecorator('button3')(
-                        <Input></Input>
+                        <Input
+                            style={{
+                                border: 0,
+                                width: '300px',
+                                borderBottom: '1px solid #ccc'
+
+                            }}
+                        ></Input>
                     )}
                 </FormItem>
                 <FormItem
@@ -194,9 +201,12 @@ class Demo extends React.Component {
                 <Col
                     span={24}
                     style={{
+
                         display: 'flex',
                         justifyContent: 'space-around',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        paddingRight: '450px',
+                        paddingLeft: '95px'
                     }}>
                     <FormItem
                         label="题型选择"
