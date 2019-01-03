@@ -76,3 +76,46 @@
     display: inline-block;
     width:100%;
 } */
+ul,li{
+    list-style: none;
+}
+.step3 ul li{
+    width:400px;
+    height: 100px;
+    /* border:1px solid red; */
+    margin: 0 auto;
+    margin-top: -24px;
+    border-bottom:1px solid red;
+    display: flex;
+    /* flex-direction: column; */
+}
+.step3 ul .content{
+    width:250px;
+    height: 100px;
+    border:1px solid blue;
+    text-align: center;
+    line-height: 100px
+    /* margin: 0 auto;
+    margin-top: -24px; */
+}
+.step3 ul .title{
+    display: inline-block;
+    width:120px;
+    height: 40px;
+    border:1px solid #ccc;
+    text-align: center;
+    line-height: 40px;
+}
+.step3 ul .btn-select{
+    display: inline-block;
+    width: 50px;
+    height:30px;
+    border:1px solid red;
+}
+
+.step3 ul .btn-delect{
+    display: inline-block;
+    width: 50px;
+    height:30px;
+    border:1px solid red;
+}

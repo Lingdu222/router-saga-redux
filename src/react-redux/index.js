@@ -73,7 +73,7 @@ export class App extends Component {
     }
     render() {
         const { count, add, reduce, reduce2 } = this.props
-        const { nameList, value, valueList } = this.state
+        const { value, valueList } = this.state
         return (
             <Fragment>
                 <h3> 功能一：</h3>
@@ -97,7 +97,7 @@ export class App extends Component {
                 </CSSTransition>
                 <button onClick={this.bianhua}>变</button>
                 <h3> 功能三：</h3>
-                <div>
+                {/* <div>
                     <h5> 我们家成员：</h5>
                     <ul>
                         {
@@ -108,7 +108,7 @@ export class App extends Component {
                             })
                         }
                     </ul>
-                </div>
+                </div> */}
                 <h3> 功能四：</h3>
                 <div>
                     <input
@@ -131,14 +131,14 @@ export class App extends Component {
             </Fragment>
         )
     }
-    componentDidMount() {
-        axios.get('/api/nameList')
-            .then(res => {
-                this.setState({
-                    nameList: [...res.data.data]
-                })
-            })
+    // componentDidMount() {
+    //     axios.get('/api/nameList')
+    //         .then((data) => {
+    //             this.setState({
+    //                 nameList: [data]
+    //             })
+    //         })
 
-    }
+    // }
 }
 export default App

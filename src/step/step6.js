@@ -36,8 +36,8 @@ class HorizontalLoginForm extends React.Component {
         return (
             <Form layout="inline" onSubmit={this.handleSubmit}>
                 <FormItem
-                    validateStatus={userNameError ? 'error' : ''}
-                    help={userNameError || ''}
+                // validateStatus={userNameError ? 'error' : ''}
+                // help={userNameError || ''}
                 >
                     {getFieldDecorator('userName', {
                         rules: [{ required: true, message: 'Please input your username!' }],

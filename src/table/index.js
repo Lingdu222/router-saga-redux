@@ -85,6 +85,7 @@ export class Wrap extends Component {
     }
     goDetail = (id) => {
         const { history, location } = this.props
+
         //link方法
         // < Link to = "/user/sam" > 用户</Link>
         //push方法
@@ -93,7 +94,17 @@ export class Wrap extends Component {
     handleDelete = (key) => {
         console.log(key)
         const dataSource = [...this.state.dataSource];
-        this.setState({ dataSource: dataSource.filter(item => item.key !== key) }, () => {
+        // axios.get(`/api/nameList?id=${key}`).then((data) => {
+        //     this.setState({
+        //         dataSource: data
+        //     }, () => {
+        //         message.success("删除成功")
+        //     });
+
+        // })
+        this.setState({
+            dataSource: dataSource.filter(item => item.key !== key)
+        }, () => {
             // console.log(dataSource.filter(item => item.key !== key))
             message.success("删除成功")
         });
