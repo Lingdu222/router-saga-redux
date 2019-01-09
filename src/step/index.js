@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Steps, Button, message } from 'antd';
+import { Steps } from 'antd';
 import './index.css'
 
 import Step1 from "./step1"
@@ -53,9 +53,9 @@ class Testpaper extends Component {
                 </Steps>
 
                 <div className="steps-content">
-                    {current == 0 && <Step1 next={this.next} />}
-                    {current == 1 && <Step2 next={this.next} />}
-                    {current == 2 && <Step3 data={submitData} />}
+                    {current === 0 && <Step1 next={this.next} />}
+                    {current === 1 && <Step2 next={this.next} />}
+                    {current === 2 && <Step3 data={submitData} />}
                 </div>
 
                 {/* <div className="steps-action">

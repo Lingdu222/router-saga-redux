@@ -1,14 +1,15 @@
 
 import React from 'react'
 import {
-    Form, Select, InputNumber, Radio, Input,
-    Button, Checkbox, Icon, Col
+    Form, Select, Radio, Input,
+    Button, Icon
 } from 'antd';
+import './step2.css'
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-const CheckboxGroup = Checkbox.Group
+// const CheckboxGroup = Checkbox.Group
 const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
     Zhejiang: ['all', 'Hangzhou', 'Ningbo', 'Wenzhou'],
@@ -22,33 +23,46 @@ class Demo extends React.Component {
             subject: [],
             Options: [],
 
-            value: '',
-            value2: '',
-            value3: '',
+
             cities: cityData[provinceData[0]],
             secondCity: cityData[provinceData[0]][0],
+
+            questionType: [{ type: '填空题', value: 0 }, { type: '简答题', value: 0 }, { type: '选择题', value: 0 }],
+            id: '',
+
         }
     }
-    handerchange = (value) => {
+    handelReduce = (index) => {
+
+        const { questionType } = this.state
+        const value = questionType[index][`value`]
+        let value2 = questionType[index][`value`] -= 1
+        value === 0 ? value : value2
+        // 这个时候并不会更新视图, 需要 setState更新 arr 
+        // (注意 setState 是一步操作, 不要轻易去根据 setstate 的状态去做接下来的事情), 非要这样的话可以给 setState 传递一个函数`this.setState(() => {})`进行操作
         this.setState({
-            value: value,
+            questionType: questionType
         })
+
     }
-    handerchange2 = (value) => {
+    handelPlus = (index) => {
+        const { questionType } = this.state
+        questionType[index][`value`] += 1
         this.setState({
-            value2: value,
+            questionType: questionType
         })
-    }
-    handerchange3 = (value) => {
-        this.setState({
-            value3: value,
-        })
+
     }
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 values.select = this.state.subjectData
+                const arr = []
+                this.state.questionType.forEach((item) => {
+                    arr.push(item.value)
+                })
+                values.showTag = arr
                 console.log('Received values of form: ', values);
                 this.props.next({}, values)
             }
@@ -77,7 +91,7 @@ class Demo extends React.Component {
         })
     }
     handelSelect2 = (value) => {
-        if (value != 'all') {
+        if (value !== 'all') {
             this.setState({
                 subject: [...this.state.subject, value]
             })
@@ -93,7 +107,7 @@ class Demo extends React.Component {
     }
     render() {
         const { getFieldDecorator } = this.props.form;
-        const { value, value2, value3, cities } = this.state
+        const { questionType, cities } = this.state
         const formItemLayout = {
             labelCol: { span: 4 },
             wrapperCol: { span: 17 },
@@ -186,45 +200,30 @@ class Demo extends React.Component {
                         </RadioGroup>
                     )}
                 </FormItem>
+                <FormItem
+                    label="题型选择"
+                    {...formItemLayout}
+                >
+                    {getFieldDecorator('showTag')(
+                        <ul className='wrap-1'>
+                            {
+                                questionType.map((item, index) => {
+                                    return <li key={index}>
+                                        <div className='wrap-2'>
+                                            <span className={item.value > 0 ? 'active' : 'default'}>{item.type}</span>
+                                            <p className='calculation'>
+                                                <span className='reduce' onClick={() => { this.handelReduce(index) }}> - </span>
+                                                <span className='number'>{item.value}</span>
+                                                <span className='plus' onClick={() => { this.handelPlus(index) }}>+</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                })
+                            }
+                        </ul>
 
-                <Col
-                    span={24}
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-around',
-                        alignItems: 'center',
-                        paddingRight: '450px',
-                        paddingLeft: '95px'
-                    }}>
-                    <FormItem
-                        label="题型选择"
-                        style={{ display: 'flex' }}
-                    >
-                        {getFieldDecorator('showTag')(
-                            <div>
-                                <span className={value > 0 ? 'active' : 'default'}>选择题</span>
-                                <InputNumber min={0} onChange={this.handerchange}></InputNumber>
-                            </div>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('showTag2')(
-                            <div className='yingyong'>
-                                <span className={value2 > 0 ? 'active' : 'default'}>应用题</span>
-                                <InputNumber min={0} onChange={this.handerchange2}></InputNumber>
-                            </div>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('showTag3')(
-                            <div className='jianda'>
-                                <span className={value3 > 0 ? 'active' : 'default'}>简答</span>
-                                <InputNumber min={0} onChange={this.handerchange3}></InputNumber>
-                            </div>
-                        )}
-                    </FormItem>
-                </Col>
-
+                    )}
+                </FormItem>
                 <FormItem
                     {...formItemLayout}
                     label="Radio.Group"
@@ -241,75 +240,8 @@ class Demo extends React.Component {
                     <Button type="primary" htmlType="submit"> 查看试题</Button>
                 </FormItem>
             </Form >
-        );
+        )
     }
 }
 const Step2 = Form.create()(Demo);
 export default Step2
-
-
-
-
-
-// import React, { Component } from 'react'
-// import { Button, Select, Input } from 'antd';
-// // import './index.css'
-// const ButtonGroup = Button.Group;
-// const Option = Select.Option;
-
-
-// class Step2 extends Component {
-//     handleChange = (value) => {
-//         console.log(`selected ${value}`);
-//     }
-//     render() {
-//         return (
-//             <div className='step2'>
-//                 <ButtonGroup>
-//                     <span className='title'> 考试时长</span>
-//                     <Button>40分钟</Button>
-//                     <Button>60分钟</Button>
-//                     <Button>90分钟</Button>
-//                     <Button>120分钟</Button>
-//                 </ButtonGroup>
-//                 <div className='select'>
-//                     <span className='title'> 选择课程</span>
-//                     <Select defaultValue="请选择课程" style={{ width: 100, marginRight: 10 }} onChange={this.handleChange}>
-//                         <Option value="语文">语文</Option>
-//                         <Option value="数学">数学</Option>
-//                         <Option value="英语">英语</Option>
-//                     </Select>
-//                     <Select defaultValue="请选择课程" style={{ width: 100, marginRight: 10 }} onChange={this.handleChange}>
-//                         <Option value="语文">语文</Option>
-//                         <Option value="数学">数学</Option>
-//                         <Option value="英语">英语</Option>
-//                     </Select>
-//                     <button>确定添加</button>
-//                 </div>
-//                 <ButtonGroup >
-//                     <span className='title'> 选择题难度</span>
-//                     <Button>简单题</Button>
-//                     <Button>较易题</Button>
-//                     <Button>一般题</Button>
-//                     <Button>较难题</Button>
-//                     <Button>困难题</Button>
-//                 </ButtonGroup>
-//                 <ButtonGroup>
-//                     <span className='title'> 简单题难度</span>
-//                     <Button>简单题</Button>
-//                     <Button>较易题</Button>
-//                     <Button>一般题</Button>
-//                     <Button>较难题</Button>
-//                     <Button>困难题</Button>
-//                 </ButtonGroup>
-//                 <div>
-//                     <span className='title'> 预估考试时长</span>
-//                     <Input style={{ width: 80 }} defaultValue="_分钟" />
-
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
-// export default Step2

@@ -11,10 +11,6 @@ const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
 class Demo extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {

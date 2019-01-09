@@ -47,24 +47,7 @@
 .ant-form .ant-radio-button-wrapper:last-child{
     border-radius: 0px 0px 0px 0px;
 }
-.default{
-    display:inline-block;
-    width: 60px;
-    height:30px;
-    line-height: 30px;
-    text-align: center;
-    border:1px solid #ccc;
-    color:#ccc;
-}
-.active{
-    display:inline-block;
-   width: 60px;
-    height:30px;
-    line-height: 30px;
-    text-align: center;
-    border:1px solid red;
-    color:red;
-}
+
 /* #showTag{
     display: flex
 } */
@@ -119,3 +102,13 @@ ul,li{
     height:30px;
     border:1px solid red;
 }
+
+
+
+
+.calculation{
+    display: flex;
+
+}
+
+

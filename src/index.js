@@ -6,7 +6,7 @@ import { Provider } from "react-redux"
 // import App from "./button/app"
 import Testpaper from './step/index'
 import TemperatureContainer from './zi-fu/fu'
-import Test from './state/test7'
+import Test from './state/test6'
 import FormLayoutDemo from './step/step5'
 import WrappedHorizontalLoginForm from './step/step6'
 import store from './react-redux/store'
@@ -58,7 +58,8 @@ const el = document.getElementById("root")
 const render = () => {
     return ReactDOM.render(
         <Provider store={store}>
-            <App />
+            {/* <App /> */}
+            <Testpaper />
         </Provider>
         , el)
 }
