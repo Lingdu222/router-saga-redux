@@ -12,11 +12,14 @@ import WrappedHorizontalLoginForm from './step/step6'
 import store from './react-redux/store'
 import App from './react-redux/index'
 import Zyh from './zyh/index'
+import Modals from './modal/index'
+import App3 from './Model/index'
 
 // import App from "./saga2/index"
 // import store from './saga2/store'
 import EditableTable from './table'
 import Wrap from './table/index'
+import { Button } from 'antd';
 import "../node_modules/antd/dist/antd.css"
 // import hellosaga from "./saga/index"
 
@@ -42,8 +45,10 @@ const render = () => {
     return ReactDOM.render(
         // <Wrap />
         // <App />
-        // <Testpaper />
-        < Zyh />
+        <Testpaper />
+        // < Zyh />
+        // <Modals title="hello jbone" />
+        // <App3 />
         // <TemperatureContainer />
         // <Test />
         // <FormLayoutDemo />

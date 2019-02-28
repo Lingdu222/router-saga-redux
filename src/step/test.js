@@ -1,3 +1,26 @@
+
+// console.log('object')
+
+// let p = new Promise((resolve, reject) => {
+//     // 这里面调用哪一个函数就执行哪一个函数，没有调用函数的话，默认是padding状态
+//     resolve('成功了！！！')
+//     // 或者
+//     reject('失败了！！！')
+//     console.log('张')
+
+// })
+// p.then((value) => {
+//     console.log('成功时处理', value)
+// }, (error) => {
+//     console.log('失败时处理', error)
+// })
+
+// console.log('三')
+
+
+let res = [1, 2, 3, 4, 5].reduce()
+
+
 // import {
 //     Form, Icon, Input, Button,
 // } from 'antd';
@@ -68,16 +91,16 @@
 // }
 
 // const WrappedHorizontalLoginForm = Form.create()(HorizontalLoginForm);
-var data = {
-    100: "专车(舒适型)",
-    200: "专车(行政级)",
-    400: "专车(商务型)",
-    500: "快车(优选型)",
-    610: "快车(快车小巴)",
-    800: "快车(迷你型)",
-    900: "快车(优享型)",
-    1000: "豪华车(全部豪华车)",
-    1100: "unione(普通型-出租车, unione)",
-    1402: "unione(优选型出租车)", 2100: "计程车(台湾计程车)", 2200: "香港出租车(香港出租车)"
-}
-console.log(data[100])
+// var data = {
+//     100: "专车(舒适型)",
+//     200: "专车(行政级)",
+//     400: "专车(商务型)",
+//     500: "快车(优选型)",
+//     610: "快车(快车小巴)",
+//     800: "快车(迷你型)",
+//     900: "快车(优享型)",
+//     1000: "豪华车(全部豪华车)",
+//     1100: "unione(普通型-出租车, unione)",
+//     1402: "unione(优选型出租车)", 2100: "计程车(台湾计程车)", 2200: "香港出租车(香港出租车)"
+// }
+// console.log(data[100])

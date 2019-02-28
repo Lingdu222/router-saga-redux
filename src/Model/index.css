@@ -1,0 +1,22 @@
+ .ant-modal-header{
+    text-align: center;
+    border-bottom:1px solid #fff !important;
+    border-radius: 4px !important;
+}
+.ant-modal-footer{
+    border-top:1px solid #fff !important;
+    padding:0 !important;
+    background: #1890ff;
+}
+.ant-modal-footer div{
+    display: flex;
+    justify-content: space-between;
+}
+.ant-modal-footer div button {
+    flex:1;
+    margin-left:0 !important;
+}
+.ant-modal-footer div .ant-btn:first-child{
+    border-radius:0;
+    border-bottom-left-radius:4px !important;
+}

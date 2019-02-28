@@ -1,0 +1,34 @@
+.modals{
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+header{
+    height: 60px;
+    flex: 1;
+    line-height: 60px;
+}
+.btn{
+    width:100%;
+    height:40px;
+    display: flex;
+    justify-content: space-around;
+    line-height: 30px;
+    margin:0;
+}
+.btn-ok{
+    width:50%;
+    color: #fff;
+    background: #1890ff;
+    text-align: center;
+    border-bottom-right-radius: 4px;
+}
+.btn-cancel{
+    width:50%;
+    color: #ccc;
+    text-align: center;
+}

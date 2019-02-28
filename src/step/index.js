@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Steps } from 'antd';
+import { Steps, Button, message } from 'antd';
 import './index.css'
 
 import Step1 from "./step1"
@@ -58,8 +58,8 @@ class Testpaper extends Component {
                     {current === 2 && <Step3 data={submitData} />}
                 </div>
 
-                {/* <div className="steps-action">
-                    {
+                <div className="steps-action">
+                    {/* {
                         current < steps.length - 1
                         // && <Button type="primary" onClick={() => this.next()}>下一步</Button>
                         && <Button type="primary" >下一步</Button>
@@ -67,12 +67,12 @@ class Testpaper extends Component {
                     {
                         current === steps.length - 1
                         && <Button type="primary" onClick={() => message.success('Processing complete!')}>完成</Button>
-                    }
+                    } */}
                     {
                         current > 0
                         && <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>上一步</Button>
                     }
-                </div> */}
+                </div>
             </div>
         );
     }
