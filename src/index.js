@@ -45,10 +45,10 @@ const render = () => {
     return ReactDOM.render(
         // <Wrap />
         // <App />
-        <Testpaper />
+        // <Testpaper />
         // < Zyh />
         // <Modals title="hello jbone" />
-        // <App3 />
+        <App3 />
         // <TemperatureContainer />
         // <Test />
         // <FormLayoutDemo />
