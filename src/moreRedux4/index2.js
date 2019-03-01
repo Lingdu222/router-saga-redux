@@ -6,7 +6,6 @@ import * as actions from './action'
 )
 export default class Cons extends Component {
     render() {
-        // console.log(this.props.count)
         const { count, add2, jian } = this.props
         return (
             <div>
