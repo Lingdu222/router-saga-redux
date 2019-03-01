@@ -9,12 +9,13 @@ import TemperatureContainer from './zi-fu/fu'
 import Test from './state/test6'
 import FormLayoutDemo from './step/step5'
 import WrappedHorizontalLoginForm from './step/step6'
-import store from './react-redux/store'
+// import store from './react-redux/store'
 import App from './react-redux/index'
 import Zyh from './zyh/index'
 import Modals from './modal/index'
 import App3 from './Model/index'
-
+import Reduxer from './redux3/index'
+import store from './redux3/store'
 // import App from "./saga2/index"
 // import store from './saga2/store'
 import EditableTable from './table'
@@ -48,7 +49,11 @@ const render = () => {
         // <Testpaper />
         // < Zyh />
         // <Modals title="hello jbone" />
-        <App3 />
+        // <App3 />
+        <Provider store={store}>
+            <Reduxer />
+        </Provider>
+
         // <TemperatureContainer />
         // <Test />
         // <FormLayoutDemo />
