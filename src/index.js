@@ -25,6 +25,7 @@ import Wrap from './table/index'
 import { Button } from 'antd';
 import "../node_modules/antd/dist/antd.css"
 // import hellosaga from "./saga/index"
+import Deskmark from '../src/deskMark/components/Deskmark/index'
 
 
 /**
@@ -52,10 +53,10 @@ const render = () => {
         // < Zyh />
         // <Modals title="hello jbone" />
         // <App3 />
-        <Provider store={store}>
-            <CCCC />
-        </Provider>
-
+        // <Provider store={store}>
+        //     <CCCC />
+        // </Provider>
+        <Deskmark />
         // <TemperatureContainer />
         // <Test />
         // <FormLayoutDemo />
