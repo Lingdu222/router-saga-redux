@@ -2,10 +2,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function ListItem({ item }) {
+function ListItem({ item, onClick }) {
     return (
-        <div>
-            <a href="">
+        <div >
+            <a href="#" onClick={() => onClick(item.id)}>
                 <span>{item.time}</span>
                 {item.title}
             </a>

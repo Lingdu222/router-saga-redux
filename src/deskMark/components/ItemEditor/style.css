@@ -1,0 +1,10 @@
+.createrItem{
+    border:1px solid red;
+    width:500px;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+}
+input{
+    height:50px;
+}
