@@ -26,6 +26,7 @@ import { Button } from 'antd';
 import "../node_modules/antd/dist/antd.css"
 // import hellosaga from "./saga/index"
 import Deskmark from '../src/deskMark/components/Deskmark/index'
+import DeskMark2 from '../src/deskMark2/deskMark/index'
 
 
 /**
@@ -56,7 +57,7 @@ const render = () => {
         // <Provider store={store}>
         //     <CCCC />
         // </Provider>
-        <Deskmark />
+        <DeskMark2 />
         // <TemperatureContainer />
         // <Test />
         // <FormLayoutDemo />

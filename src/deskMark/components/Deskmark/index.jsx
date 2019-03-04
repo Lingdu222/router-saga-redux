@@ -4,26 +4,11 @@ import List from '../List/index'
 import CreateBar from '../CreateBar/index'
 import ItemEditor from '../ItemEditor/index'
 import ItemShowLayer from '../ItemShowLayer/index'
-import { channel } from 'redux-saga';
-import thunk from 'redux-thunk';
 export default class Deskmark extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: [
-                // {
-                //     'id': 1,
-                //     'title': 'hello',
-                //     'content': 'hello world',
-                //     'time': 1458 - 30208359
-                // },
-                // {
-                //     'id': 2,
-                //     'title': 'hello2',
-                //     'content': 'hello world2',
-                //     'time': 1458 - 30208359
-                // }
-            ],
+            items: [],
             selected: null,
             selectedId: null,
             editing: false,
@@ -40,48 +25,18 @@ export default class Deskmark extends Component {
     }
     // 创建文章-->保存
     onOk = (items) => {
-
         const preItem = this.state.items
-        const same = preItem.filter(item => item.id !== items.id)
-        const noSame = preItem.filter(item => item.id === items.id)
+        const noSamesame = preItem.filter(item => item.id !== items.id)
         // 新建  // 编辑
-        const preItem2 = preItem.map(data => {
+        preItem.map(data => {
             if (data.id === items.id) {
                 this.setState({
                     haveSame: true
                 })
             }
-            return [...same, {
-                id: noSame.id,
-                title: items.title,
-                content: items.comtent
-            }]
         })
-
-
-        // const sameItem = preItem.filter(item =>
-        //     item.id === items.id
-        // )
-        // console.log(sameItem,'相同的元素')
-
-        // let A = preItem.map(item => {
-        //     let same = {}
-        //     if (item.id == items.id) {
-        //         ishave = true
-        //         same = item
-        //         same = {
-        //             id: items.id,
-        //             title: items.title,
-        //             content: items.content,
-        //             time: new Date().getTime()
-        //         }
-        //     }
-
-        //     return [...same2item, same]
-        // })
-        // console.log(A)
-        // console.log(preItem)
-        const FFF = this.state.haveSame ? [...preItem2] : [...preItem, items]
+        console.log(noSamesame, '=====')
+        const FFF = this.state.haveSame ? [...noSamesame, items] : [...preItem, items]
         this.setState({
             items: FFF,
             editing: false
@@ -95,22 +50,12 @@ export default class Deskmark extends Component {
     }
     // 查看文章
     selectedclick = (id) => {
-        const data = this.state.items
         const selectedId = this.state.selectedId
         if (id === selectedId) return
         this.setState({
-            selectedId: id
-        }, () => {
-            data.map(item => {
-                if (item.id === this.state.selectedId) {
-                    this.setState({
-                        selected: item
-                    })
-                }
-                return null
-            })
+            selectedId: id,
+            editing: false,//11111
         })
-
     }
     // 点击编辑
     bianji = (id) => {
@@ -120,15 +65,16 @@ export default class Deskmark extends Component {
         })
     }
     delect = (id) => {
+        if (!id) return
         // filter留校符合条件的
         const data = this.state.items.filter(item => item.id !== id)
         this.setState({
             items: data,
-            selected: null
         })
     }
     render() {
-        let { editing, selected } = this.state
+        let { editing, selectedId, items } = this.state
+        const selected2 = selectedId && items.find(item => item.id === selectedId);
         return (
             <div>
                 <CreateBar onClick={this.createItem} />
@@ -138,10 +84,10 @@ export default class Deskmark extends Component {
                         ? <ItemEditor
                             cancel={this.cancel}
                             onOk={this.onOk}
-                            item={selected}
+                            item={selected2}
                         />
                         : <ItemShowLayer
-                            items={selected}
+                            items={selected2}
                             ondelect={this.delect}
                             bianji={this.bianji}
                         />
