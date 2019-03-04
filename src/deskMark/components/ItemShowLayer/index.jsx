@@ -12,10 +12,8 @@ export default function ItemShowLayer({ items, ondelect, bianji }) {
 
     return (
         <div>
-            <div>
-                <button onClick={bianji}>编辑</button>
-                <button onClick={() => ondelect(items.id)}>删除</button>
-            </div>
+            <button onClick={() => bianji(items.id)}>编辑</button>
+            <button onClick={() => ondelect(items.id)}>删除</button>
             <h2>{items.title}</h2>
             <div>
                 <div dangerouslySetInnerHTML={{ __html: content }} />
