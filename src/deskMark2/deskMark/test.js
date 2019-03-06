@@ -21,9 +21,9 @@ const item = {
 // const data2 = data.map(i => (
 //     i.id === item.id ? { ...i, ...item } : i
 // ))
-const data2 = data.map(i => {
-    return i.id === item.id ? { ...i, ...item } : i
-})
+const data2 = data.map(i =>
+    i.id === item.id ? { ...i, ...item } : i
+)
 // const data2 = data.map(i => {
 //     if (i.id === item.id) {
 //         return { ...i, ...item }
@@ -34,6 +34,9 @@ const data2 = data.map(i => {
 
 console.log(data2)
 
+var simple = a => (a > 15 ? [15, a] : a);
+console.log(simple(16))
+console.log(simple(10))
 
 // [1, 2, 3, 4].forEach(i => console.log(i));
 // var array = [1, 2, 3, 4];
