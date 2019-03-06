@@ -59,6 +59,7 @@ export default class DeskMark2 extends Component {
             data = data.map(i => (
                 i.id === item.id ? { ...i, ...item } : i
             ))
+            console.log(data, '##########')
         }
         this.setState({
             data,
