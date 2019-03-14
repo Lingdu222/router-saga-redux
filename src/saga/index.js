@@ -20,7 +20,11 @@ function Counter(props) {
             <br />
             <br />
             <br />
-            <Login />
+            <Login
+                login={props.login}
+                logout={props.logout}
+                token={props.token}
+            />
         </div>
     )
 }

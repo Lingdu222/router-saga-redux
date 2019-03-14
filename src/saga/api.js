@@ -9,7 +9,7 @@ export default {
     storeItem(key, value) {
         localStorage.setItem(key, value)
     },
-    remove(key) {
+    removeItem(key) {
         localStorage.removeItem(key)
     }
 

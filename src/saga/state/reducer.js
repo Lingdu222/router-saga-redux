@@ -3,7 +3,7 @@ const initalState = {
     number: 0,
     // username:'',
     // password:'',
-    taken: '',
+    token: '',
 }
 export const Reducer = (state = initalState, action) => {
     switch (action.type) {
@@ -12,7 +12,7 @@ export const Reducer = (state = initalState, action) => {
         case types.REDUCE:
             return { number: state.number - 1 }
         case types.LOGIN_SUCCESS:
-            return { ...state, taken: action.taken }
+            return { ...state, token: action.token }
         default:
             return state
     }

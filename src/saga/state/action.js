@@ -14,8 +14,8 @@ export function asyncreduce() {
     return { type: types.REDUCE_SAGA }
 }
 
-export function login(name, pwd) {
-    return { type: types.LOGIN_REQUEST, name, pwd }
+export function login(username, password) {
+    return { type: types.LOGIN_REQUEST, username, password }
 }
 
 export function logout() {

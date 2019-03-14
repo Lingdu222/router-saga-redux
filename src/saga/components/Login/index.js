@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as actions from '../../state/action'
 
-class Login extends Component {
+
+export default class Login extends Component {
     constructor(props) {
         super(props)
         this.username = React.createRef()
@@ -34,13 +33,12 @@ class Login extends Component {
         )
         const logoutForm = (
             <form>
-                <h2>token:{this.props.taken}</h2>
+                <h2>token:{this.props.token}</h2>
                 <button onClick={this.Logot}>退出</button>
             </form>
         )
         return (
-            this.props.taken ? logoutForm : loginForm
+            this.props.token ? logoutForm : loginForm
         )
     }
 }
-export default connect(state => state, actions)(Login)
