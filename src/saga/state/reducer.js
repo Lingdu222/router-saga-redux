@@ -1,6 +1,9 @@
 import * as types from './action.type'
 const initalState = {
-    number: 0
+    number: 0,
+    // username:'',
+    // password:'',
+    taken: '',
 }
 export const Reducer = (state = initalState, action) => {
     switch (action.type) {
@@ -8,6 +11,8 @@ export const Reducer = (state = initalState, action) => {
             return { number: state.number + 1 }
         case types.REDUCE:
             return { number: state.number - 1 }
+        case types.LOGIN_SUCCESS:
+            return { ...state, taken: action.taken }
         default:
             return state
     }

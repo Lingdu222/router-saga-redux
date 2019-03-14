@@ -13,3 +13,11 @@ export function reduce() {
 export function asyncreduce() {
     return { type: types.REDUCE_SAGA }
 }
+
+export function login(name, pwd) {
+    return { type: types.LOGIN_REQUEST, name, pwd }
+}
+
+export function logout() {
+    return { type: types.LOGOUT };
+}

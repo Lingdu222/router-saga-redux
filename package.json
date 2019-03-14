@@ -61,7 +61,6 @@
     "test": "node scripts/test.js --env=jsdom",
     "dev": "node server.js"
   },
-  "proxy": "http://localhost:3000",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"

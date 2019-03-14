@@ -1,7 +1,7 @@
-import { call, put, takeEvery, all } from 'redux-saga/effects';
+import { put, takeEvery, all } from 'redux-saga/effects';
 
 import * as types from '../state/action.type'
-
+import loginSaga from './sagas/LoginSaga'
 function delay(time) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
@@ -28,7 +28,8 @@ export function* watchReduce() {
 }
 
 export function* hello() {
-    console.log('hello saga');
+    yield delay(1000)
+    yield console.log('hello saga');
 
 }
 
@@ -36,7 +37,8 @@ export default function* rootSagas() {
     yield all([
         hello(),
         watchAdd(),
-        watchReduce()
+        watchReduce(),
+        loginSaga()
 
     ])
 }
