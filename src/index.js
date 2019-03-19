@@ -14,7 +14,7 @@ import store from '../src/saga/store'
 // import store from './react-redux/store'
 // import App from './react-redux/index'
 // import Zyh from './zyh/index'
-// import Modals from './modal/index'
+import Modals from './modal/index'
 // import App3 from './Model/index'
 // import Reduxer from './redux3/index'
 // import store from './redux3/store'
@@ -28,7 +28,7 @@ import store from '../src/saga/store'
 import "../node_modules/antd/dist/antd.css"
 // import hellosaga from "./saga/index"
 // import Deskmark from '../src/deskMark/components/Deskmark/index'
-import DeskMark2 from '../src/deskMark2/deskMark/index'
+// import DeskMark2 from '../src/deskMark2/deskMark/index'
 
 
 /**
@@ -75,9 +75,10 @@ import DeskMark2 from '../src/deskMark2/deskMark/index'
 const el = document.getElementById("root")
 const render = () => {
     return ReactDOM.render(
-        <Provider store={store}>
-            < Counter />
-        </Provider>
+        // <Provider store={store}>
+        // < Counter />
+        <Modals />
+        // </Provider>
         , el)
 }
 render()
