@@ -1,0 +1,25 @@
+.table{
+    border:1px solid red;
+}
+.table tr{
+    /* width: 200px; */
+    height:50px;
+    text-align: center;
+    /* border:1px solid red; */
+}
+.table .tr td{
+    /* width: 200px; */
+    text-align: center;
+    line-height: 50px;
+    border:1px solid black;
+
+}
+
+.table .tr .active{
+    
+   background: #1890ff;
+   color:#fff;
+
+}
+
+

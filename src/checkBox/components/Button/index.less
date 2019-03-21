@@ -1,0 +1,20 @@
+@import "~@/style/theme.less";
+@import "./mixin.less";
+
+@btn-prefix-cls: ~"@{pope-prefix}-btn";
+
+.@{btn-prefix-cls} {
+  .btn;
+  .btn-default;
+  width: 158px;
+  height: 40px;
+  box-shadow: 0 4px 8px 0 rgba(84,84,102,0.20);
+  border-radius: 100px;
+
+  &-primary {
+    .btn-primary;
+    background: #447DF1;
+  }
+
+}
+

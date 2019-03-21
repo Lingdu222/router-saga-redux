@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from "react-redux"
+// import { Provider } from "react-redux"
 
-import Counter from '../src/saga/index'
-import store from '../src/saga/store'
+// import Counter from '../src/saga/index'
+// import store from '../src/saga/store'
+import Check from '../src/checkBox'
+// import Check2 from '../src/checkBox/index2'
+import Table3 from '../src/checkBox/index3'
+import RoleApplicationTable from '../src/checkBox2/RoleApplicationTable'
 // import App from "./table/router"
 // import App from "./button/app"
 // import Testpaper from './step/index'
@@ -77,7 +81,13 @@ const render = () => {
     return ReactDOM.render(
         // <Provider store={store}>
         // < Counter />
-        <Modals />
+        <div>
+            <Check />
+            {/* <Check2 /> */}
+            <Table3 />
+            <RoleApplicationTable />
+        </div>
+
         // </Provider>
         , el)
 }
