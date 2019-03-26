@@ -14,11 +14,9 @@ class RoleApplicationTable extends React.Component {
         this.parentCol = new Map();//每个checkboxId节点 对应最上边的哪个按钮
         this.childrenRow = new Map();//当前行的所有子行
         this.checkboxIdMapData = new Map();//每个checkbox对应的 appid，btnGroupId
-
         //保存数据
         this.checked = null;//标识数据是 新增 还是 删除
         this.dataQueue = [];// appid，btngroupId队列
-
         //测试数据
         this.appData = [
             {
@@ -110,7 +108,6 @@ class RoleApplicationTable extends React.Component {
         }
     }
     checkGroupAndColumnState = () => {
-        // const childrenRow = this.childrenRow;
         const checkboxIdMapState = this.checkboxIdMapState;
         const colNum = this.colNum;
         const rowNum = this.rowNum;
@@ -141,26 +138,12 @@ class RoleApplicationTable extends React.Component {
                 checkboxIdMapState.put((row - 1) * colNum + 1, false);
             }
         }
-        // 判断列 是否被选中
-        if (rowNum > 1) {
-            for (var col = 1; col <= colNum; ++col) {
-                var curColState = true;
-                for (var cid = col + colNum; cid <= colNum * rowNum; cid += colNum) {
-                    if (checkboxIdMapState.get(cid) == false) {
-                        curColState = false;
-                        break;
-                    }
-                }
-                var cid = col;
-                checkboxIdMapState.put(cid, curColState);//这一列的状态
-            }
-        }
-
     }
 
     onChecked = (cid, btnGroupId, appId, checked) => {//checkboxId, 按钮id，应用id
         const checkboxIdMapState = this.checkboxIdMapState;
         const childrenRow = this.childrenRow;
+        const parentRow = this.parentRow;
         const colNum = this.colNum;
         const rowNum = this.rowNum;//
         //清空数据队列
@@ -190,6 +173,15 @@ class RoleApplicationTable extends React.Component {
                 checkboxIdMapState.put(cur_cid, checked);
                 cur_cid += colNum;
             }
+        } else {//都不为null
+            var curRowHeadCheckboxId = parentRow.get(cid);//通过cid 和 curRowHeadCheckboxId获取到cid对应的checkbox到左边的距离
+            var rowIds = childrenRow.get(curRowHeadCheckboxId);//所有子行的行头的 checkboxId
+            for (var i = 0; i < rowIds.length; ++i) {//这一列全部check
+                var cur_cid = parseInt(rowIds[i]) + (cid - curRowHeadCheckboxId);
+                checkboxIdMapState.put(cur_cid, checked);
+                this.addData(cur_cid, checked);
+            }
+
         }
         this.setState({});
     }
@@ -214,7 +206,6 @@ class RoleApplicationTable extends React.Component {
                     var contents = text.split('_');
                     text = contents[0];
                     var cur_cid = contents[1];//当前列顶端 checkboxId
-
                     //判断是否是第一列
                     if (record.name.split('_')[0] != text) {//不是第一列
                         var leftCheckBoxId = record.name.split('_')[1];
@@ -227,11 +218,19 @@ class RoleApplicationTable extends React.Component {
                     parentCol.put(cur_cid, elem.cid);//该 checkboxId 对应的 (按钮Id == elem.cid)
 
                     //record.name.split('_')[0] 最原始的 name 的value
-                    return <RoleCheckbox btnGroupId={record.name.split('_')[0] == text ? null : elem.id} appId={record.id} cid={cur_cid} onChecked={self.onChecked} checked={checkboxIdMapState.get(cur_cid)} title={text == elem.id ? null : text} />
+                    return <div className="colNumberOne">
+                        {/* {record.name.split('_')[0] != text ? "" : <span>人员管理</span>} */}
+                        <RoleCheckbox
+                            btnGroupId={record.name.split('_')[0] == text ? null : elem.id}
+                            appId={record.id}
+                            cid={cur_cid}
+                            onChecked={self.onChecked}
+                            checked={checkboxIdMapState.get(cur_cid)}
+                            title={text == elem.id ? null : text} />
+                    </div>
                 }
             });
         }
-
         return (
             <div>
                 <Table
@@ -239,6 +238,7 @@ class RoleApplicationTable extends React.Component {
                     columns={btnGroupColumns}
                     dataSource={appData}
                     pagination={false}
+                    bordered
                 />
             </div>
         );

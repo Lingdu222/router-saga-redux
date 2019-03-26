@@ -87,7 +87,7 @@ const render = () => {
         <div>
             {/* <Check /> */}
             {/* <Check2 /> */}
-            {/* <Table3 /> */}
+            <Table3 />
             <RoleApplicationTable />
             {/* <RoleApplicationTable2 /> */}
             {/* <AddRole /> */}

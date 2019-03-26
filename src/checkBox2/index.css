@@ -4,8 +4,9 @@
 
 
 .check2 .checkbox .ant-checkbox .ant-checkbox-inner{
-    width:100px !important;
-    height:40px !important;
+    width:109px !important;
+    height:47px !important;
+    border: none !important;
     
 }
 .checkbox .ant-checkbox-inner::after{
@@ -24,11 +25,22 @@
 }
 
  .ant-table-content{
-    width:500px;
+    width:550px;
 }
 
 td,th{
     width:100px !important;
     padding:0 !important;
     height:50px !important; 
+    box-sizing: border-box !important;
+    
+}
+
+.colNumberOne{
+    display: flex;
+
+}
+.colNumberOne span{
+    width:20px;
+    
 }
