@@ -8,6 +8,7 @@ import Check from '../src/checkBox'
 // import Check2 from '../src/checkBox/index2'
 import Table3 from '../src/checkBox/index2'
 import RoleApplicationTable from '../src/checkBox2/RoleApplicationTable'
+// import RoleApplicationTable from '../src/checkBox2/table'
 import RoleApplicationTable2 from '../src/checkBox2/index'
 // import App from "./table/router"
 // import App from "./button/app"
