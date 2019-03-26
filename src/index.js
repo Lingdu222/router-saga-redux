@@ -6,8 +6,9 @@ import ReactDOM from 'react-dom';
 // import store from '../src/saga/store'
 import Check from '../src/checkBox'
 // import Check2 from '../src/checkBox/index2'
-import Table3 from '../src/checkBox/index3'
+import Table3 from '../src/checkBox/index2'
 import RoleApplicationTable from '../src/checkBox2/RoleApplicationTable'
+import RoleApplicationTable2 from '../src/checkBox2/index'
 // import App from "./table/router"
 // import App from "./button/app"
 // import Testpaper from './step/index'
@@ -19,6 +20,7 @@ import RoleApplicationTable from '../src/checkBox2/RoleApplicationTable'
 // import App from './react-redux/index'
 // import Zyh from './zyh/index'
 import Modals from './modal/index'
+import AddRole from './table9/index'
 // import App3 from './Model/index'
 // import Reduxer from './redux3/index'
 // import store from './redux3/store'
@@ -82,10 +84,12 @@ const render = () => {
         // <Provider store={store}>
         // < Counter />
         <div>
-            <Check />
+            {/* <Check /> */}
             {/* <Check2 /> */}
-            <Table3 />
+            {/* <Table3 /> */}
             <RoleApplicationTable />
+            {/* <RoleApplicationTable2 /> */}
+            {/* <AddRole /> */}
         </div>
 
         // </Provider>

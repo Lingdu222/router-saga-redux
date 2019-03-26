@@ -1,0 +1,65 @@
+.addRole{
+  width:100%;
+  min-height:7rem;
+  background:#fff;
+  padding:.2rem;
+}
+.addRole-title{
+  padding-bottom:.2rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid rgba(216,216,216,1);
+  margin-bottom: .3rem;
+}
+.addRole-inp{
+  width:1.44rem;
+  height: .18rem;
+  font-size:.18rem;
+  font-family:"PingFangSC-Medium";
+  font-weight:500;
+  color:rgba(179,179,179,1);
+}
+.addRole-btn{
+  color: #E6393C;
+   border:.01rem solid #E6393C;
+}
+.addRole-btn:hover, .addRole-btn:focus{
+  color: #E6393C;
+  border-color: #E6393C;
+}
+.addRole_cancel, .addRole_comfirm{
+  width:1.33rem;
+  height:.46rem;
+  border-radius:.02rem;
+  font-family:"PingFangSC-Medium";
+  font-weight:500;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+}
+.addRole_cancel{
+  background:rgba(242,242,242,1);
+  font-size:18px;
+  color:rgba(153,153,153,1);
+  margin-right: .3rem;
+  border: 1px solid rgba(242,242,242,1);
+  margin-top: .45rem;
+}
+.addRole_cancel:hover, .addRole_cancel:focus {
+  background:rgba(242,242,242,1);
+  border: 1px solid rgba(242,242,242,1);
+  border-radius:2px;
+  color:rgba(153,153,153,1);
+}
+.addRole_comfirm{
+
+  background:rgba(115,142,230,1);
+  font-size:18px;
+  color:rgba(255,255,255,1);
+  margin-right: 0.70rem;
+   
+
+}
+
+
+
