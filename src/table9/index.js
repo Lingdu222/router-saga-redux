@@ -38,22 +38,39 @@ export default class AddRole extends Component {
                 // title: '人员管理',
                 dataIndex: 'manage',
                 // colSpan: 2,
+                // rowSpan: 2,
                 align: 'center',
                 // 直接显示第一列数据
                 render: (value, row, index) => {
-                    // const obj = {
-                    //   children: value,
-                    //   props: {},
-                    // };
-                    // if (index === 0) {
-                    //   obj.props.rowSpan = 2;
+                    const obj = {
+                        children: value,
+                        props: {},
+                    };
+                    if (index === 0) {
+                        obj.props.rowSpan = 2;
+                    }
+                    // if (index === 1) {
+                    //     obj.props.rowSpan = 2;
                     // }
-                    // return obj;
+                    return obj;
                 }
             }, {
                 title: <Checkbox style={{ marginLeft: '28px' }} onChange={this.see}>查看</Checkbox>,
                 dataIndex: 'see',
                 align: 'center',
+                render: (value, row, index) => {
+                    const obj = {
+                        children: value,
+                        props: {},
+                    };
+                    if (index === 0) {
+                        obj.props.rowSpan = 2;
+                    }
+                    // if (index === 1) {
+                    //     obj.props.rowSpan = 2;
+                    // }
+                    return obj;
+                }
 
             }, {
                 title: <Checkbox>下载</Checkbox>,
@@ -83,8 +100,8 @@ export default class AddRole extends Component {
             delete: 'X',
             add: 'X',
         }, {
-            see: <Checkbox>学生管理</Checkbox>,
-            down: 'X',
+            see: <Checkbox onClick={this.checkTeacher}>教师管理2</Checkbox>,
+            down: <CheckableTag >X</CheckableTag>,
             edit: 'X',
             delete: 'X',
             add: 'X',

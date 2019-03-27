@@ -29,7 +29,12 @@ class RoleApplicationTable extends React.Component {
         this.appData = [{
             name: '报表', id: "456",
             key: '5',
-        }];
+        },
+        {
+            name: '报表2', id: "455",
+            key: '6',
+        }
+        ];
         this.btnGroupColumns = [{ id: '12xx3', name: '小部件', colname: 'name' }, { id: '43xx5', name: '显示' }, { id: '43xfffx5', name: 'test' }];
     }
 
@@ -65,7 +70,7 @@ class RoleApplicationTable extends React.Component {
                     this.checkboxIdMapState.put(this.cid, false);
                 }
             }
-            this.addDataPid(btnGroupColumns, appData[i].children);
+            //this.addDataPid(btnGroupColumns, appData[i].children);
         }
     }
 
@@ -85,19 +90,6 @@ class RoleApplicationTable extends React.Component {
             this.checkGroupAndColumnState();
         }
     }
-
-    addData = (cid, checked) => {
-        var curCheckboxData = this.checkboxIdMapData.get(cid);
-        if (curCheckboxData) {
-            var curQueueData = {
-                roleId: this.props.roleId,
-                btnGroupId: curCheckboxData.btnGroupId,
-                appId: curCheckboxData.appId,
-            };
-            this.dataQueue.push(curQueueData);
-        }
-    }
-
     checkGroupAndColumnState = () => {
         const checkboxIdMapState = this.checkboxIdMapState;
         const colNum = this.colNum;
@@ -147,7 +139,6 @@ class RoleApplicationTable extends React.Component {
     onChecked = (cid, btnGroupId, appId, checked) => {//checkboxId, 按钮id，应用id
         const checkboxIdMapState = this.checkboxIdMapState;
         const parentRow = this.parentRow;
-        const parentCol = this.parentCol;
         const childrenRow = this.childrenRow;
         const colNum = this.colNum;
         const rowNum = this.rowNum;
@@ -159,7 +150,6 @@ class RoleApplicationTable extends React.Component {
         if (btnGroupId == null && appId == null) {
             for (var cur_cid = 1; cur_cid <= colNum * rowNum; ++cur_cid) {
                 checkboxIdMapState.put(cur_cid, checked);
-                this.addData(cur_cid, checked);
             }
         } else if (btnGroupId == null) {//appId 不为null, 这一行全选
             var rowHeadCheckboxIds = childrenRow.get(cid);//所有子行的行头的 checkboxId
@@ -168,8 +158,7 @@ class RoleApplicationTable extends React.Component {
                 var cur_row_max_cid = parseInt(cur_cid) + colNum;
                 while (cur_cid < cur_row_max_cid) {
                     checkboxIdMapState.put(cur_cid, checked);
-                    // if (!this.isGroupRow(cur_cid))
-                    this.addData(cur_cid, checked);
+
                     ++cur_cid;
                 }
             }
@@ -177,7 +166,6 @@ class RoleApplicationTable extends React.Component {
             var cur_cid = cid;
             while (cur_cid <= rowNum * colNum) {
                 checkboxIdMapState.put(cur_cid, checked);
-                this.addData(cur_cid, checked);
                 cur_cid += colNum;
             }
         } else {//都不为null
@@ -186,16 +174,11 @@ class RoleApplicationTable extends React.Component {
             for (var i = 0; i < rowIds.length; ++i) {//这一列全部check
                 var cur_cid = parseInt(rowIds[i]) + (cid - curRowHeadCheckboxId);
                 checkboxIdMapState.put(cur_cid, checked);
-                //if (!this.isGroupRow(cur_cid))
-                this.addData(cur_cid, checked);
             }
 
         }
         this.setState({});
     }
-
-    ////////////////////////////////////////////////////////////////////////////////
-
     render() {
         const appData = this.appData;
         const btnGroupColumns = this.btnGroupColumns;

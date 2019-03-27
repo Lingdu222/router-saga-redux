@@ -44,3 +44,7 @@ td,th{
     width:20px;
     
 }
+/* 修改每一行鼠标的hover状态 */
+.ant-table-tbody > tr:hover > td{
+    background-color:#fff ! important;
+}

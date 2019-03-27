@@ -8,6 +8,9 @@ class RoleApplicationTable extends React.Component {
         super(props);
         this.cid = 0;
         this.rowNum = 0;
+        // this.state = {
+
+        // };
         //map
         this.checkboxIdMapState = new Map();//checkboxId 映射 State
         this.parentRow = new Map();//每个checkboxId节点 对应最左边的哪个应用
@@ -19,6 +22,9 @@ class RoleApplicationTable extends React.Component {
         this.dataQueue = [];// appid，btngroupId队列
         //测试数据
         this.appData = [
+            {
+                name: '报表0', id: "4560", key: '8',
+            },
             {
                 name: '报表1', id: "456", key: '5',
             },
@@ -39,8 +45,33 @@ class RoleApplicationTable extends React.Component {
             },
         ];
         this.btnGroupColumns = [
-            { id: '12xx3', name: 'kong', colname: 'name' },
-            { id: '43xx5', name: '下载' },
+            {
+                id: '12xx3',
+                name: 'kong',
+                colname: 'name',
+                align: 'center',
+                // 直接显示第一列数据
+                // render: (value, row, index) => {
+                //     const obj = {
+                //         children: value,
+                //         props: {},
+                //     };
+                //     if (index === 0) {
+                //         obj.props.rowSpan = 2;
+                //     }
+                //     if (index === 1) {
+                //         obj.props.rowSpan = 2;
+                //     }
+                //     if (index === 2) {
+                //         obj.props.rowSpan = 2;
+                //     }
+                //     return obj;
+                // }
+
+            },
+            {
+                id: '43xx5', name: '下载',
+            },
             { id: '43xfffx5', name: '编辑' },
             { id: '43xfffx6', name: '删除' },
             { id: '43xfffx7', name: '新增' },
@@ -76,10 +107,10 @@ class RoleApplicationTable extends React.Component {
                     this.checkboxIdMapState.put(this.cid, false);
                 }
             }
+            this.addDataPid(btnGroupColumns, appData[i].children);
 
         }
     }
-
     addColName = (btnGroupColumns, appData) => {
         if (btnGroupColumns) {
             btnGroupColumns.map((elem) => {
@@ -96,24 +127,11 @@ class RoleApplicationTable extends React.Component {
             this.checkGroupAndColumnState();
         }
     }
-
-    addData = (cid) => {
-        var curCheckboxData = this.checkboxIdMapData.get(cid);
-        if (curCheckboxData) {
-            var curQueueData = {
-                btnGroupId: curCheckboxData.btnGroupId,
-                appId: curCheckboxData.appId,
-            };
-            this.dataQueue.push(curQueueData);
-        }
-    }
     checkGroupAndColumnState = () => {
         const checkboxIdMapState = this.checkboxIdMapState;
         const colNum = this.colNum;
         const rowNum = this.rowNum;
-
         const rowState = [];
-
         for (var i = 0; i <= rowNum; ++i)
             rowState.push(true)//默认所有的行全选
         rowState[1] = false;
@@ -138,6 +156,20 @@ class RoleApplicationTable extends React.Component {
                 checkboxIdMapState.put((row - 1) * colNum + 1, false);
             }
         }
+        // 判断列 是否被选中
+        if (rowNum > 1) {
+            for (var col = 1; col <= colNum; ++col) {
+                var curColState = true;
+                for (var cid = col + colNum; cid <= colNum * rowNum; cid += colNum) {
+                    if (checkboxIdMapState.get(cid) == false) {
+                        curColState = false;
+                        break;
+                    }
+                }
+                var cid = col;
+                checkboxIdMapState.put(cid, curColState);//这一列的状态
+            }
+        }
     }
 
     onChecked = (cid, btnGroupId, appId, checked) => {//checkboxId, 按钮id，应用id
@@ -154,7 +186,6 @@ class RoleApplicationTable extends React.Component {
         if (btnGroupId == null && appId == null) {
             for (var cur_cid = 1; cur_cid <= colNum * rowNum; ++cur_cid) {
                 checkboxIdMapState.put(cur_cid, checked);
-                this.addData(cur_cid, checked);
             }
         } else if (btnGroupId == null) {//appId 不为null, 这一行全选
             // 点击每一行的行头，选中该行
@@ -179,13 +210,10 @@ class RoleApplicationTable extends React.Component {
             for (var i = 0; i < rowIds.length; ++i) {//这一列全部check
                 var cur_cid = parseInt(rowIds[i]) + (cid - curRowHeadCheckboxId);
                 checkboxIdMapState.put(cur_cid, checked);
-                this.addData(cur_cid, checked);
             }
-
         }
         this.setState({});
     }
-
     render() {
         const appData = this.appData;
         const btnGroupColumns = this.btnGroupColumns;

@@ -90,7 +90,7 @@ const render = () => {
             <Table3 />
             <RoleApplicationTable />
             {/* <RoleApplicationTable2 /> */}
-            {/* <AddRole /> */}
+            <AddRole />
         </div>
 
         // </Provider>
