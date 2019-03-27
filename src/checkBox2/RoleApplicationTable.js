@@ -59,12 +59,6 @@ class RoleApplicationTable extends React.Component {
                 //     if (index === 0) {
                 //         obj.props.rowSpan = 2;
                 //     }
-                //     if (index === 1) {
-                //         obj.props.rowSpan = 2;
-                //     }
-                //     if (index === 2) {
-                //         obj.props.rowSpan = 2;
-                //     }
                 //     return obj;
                 // }
 
@@ -107,7 +101,7 @@ class RoleApplicationTable extends React.Component {
                     this.checkboxIdMapState.put(this.cid, false);
                 }
             }
-            this.addDataPid(btnGroupColumns, appData[i].children);
+            // this.addDataPid(btnGroupColumns, appData[i].children);
 
         }
     }
@@ -151,8 +145,7 @@ class RoleApplicationTable extends React.Component {
             // 行头是否被选中
             if (rowState[row] == true) {//应用对应的checkbox选中
                 checkboxIdMapState.put((row - 1) * colNum + 1, true);
-            }
-            else {
+            } else {
                 checkboxIdMapState.put((row - 1) * colNum + 1, false);
             }
         }
